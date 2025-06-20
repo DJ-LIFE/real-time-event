@@ -2,6 +2,7 @@ import { graphqlRequest } from "@/lib/graphqlClient";
 import { AuthState, User } from "@/types/types";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const loginAPi = async (
 	email: string,
@@ -54,7 +55,7 @@ export const useAuthStore = create<AuthState>()(
 		}),
 		{
 			name: "auth-storage",
-			storage: createJSONStorage(() => localStorage),
+			storage: createJSONStorage(() => AsyncStorage),
 		}
 	)
 );

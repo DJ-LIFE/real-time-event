@@ -30,7 +30,7 @@ export interface EventsState {
 	joinedEvents: string[];
 	fetchEvents: () => Promise<void>;
 	fetchEvent: (id: string) => Promise<void>;
-	joinEvent: (eventId: string) => Promise<void>;
+	joinEvent: (eventId: string) => Promise<Event | null>;
 	isJoined: (eventId: string) => boolean;
 	updateAttendees: (eventId: string, newUser: User) => void;
 }
